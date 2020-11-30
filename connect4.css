@@ -7,7 +7,7 @@
 }
 
 
-.piece {
+.token {
   
   margin: 5px;
   width: 80%;
@@ -16,11 +16,11 @@
 }
 
 
-.piece.p1 {
+.token.p1 {
   background-color: red;
 }
 
-.piece.p2 {
+.token.p2 {
   background-color: blue;
 }
 
