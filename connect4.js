@@ -17,18 +17,31 @@ var board = []; // array of rows, each row is array of cells  (board[y][x])
 
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  for (let i = 0; i < HEIGHT; i++) {
+    // board.push([0, 0, 0, 0, 0, 0, 0]);
+    board.push(Array.from({ length: WIDTH }));
+  }
+  console.log(board)
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
 
 function makeHtmlBoard() {
-  // TODO: get "htmlBoard" variable from the item in HTML w/ID of "board"
+  
+  const htmlBoard = document.getElementById('board')
 
-  // TODO: add comment for this code
+  
+  // create an element "tr" set it to a var. This way we can manipulate it and add new id 'column-top'. 
+  // we dont have to have the id in the html we create in JS. 
+  // addEventListner now 'tr' of table is clickable. 
   var top = document.createElement("tr");
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
+  // loop through and create cells for each row.
+  // the id is set 0-6 
+  // append adds it to the td child of tr
+  // 
   for (var x = 0; x < WIDTH; x++) {
     var headCell = document.createElement("td");
     headCell.setAttribute("id", x);
@@ -36,7 +49,10 @@ function makeHtmlBoard() {
   }
   htmlBoard.append(top);
 
-  // TODO: add comment for this code
+  
+  // Create table for rest of board
+  // loop is nested to create unique id for each tr-td 
+  // cell and row are appended to the board as children
   for (var y = 0; y < HEIGHT; y++) {
     const row = document.createElement("tr");
     for (var x = 0; x < WIDTH; x++) {
@@ -52,7 +68,8 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
-  return 0;
+  
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
